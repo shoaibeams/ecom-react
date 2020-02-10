@@ -2,9 +2,9 @@ import React from 'react'
 import './collection-item.styles.scss'
 import { connect } from 'react-redux'
 import CustomButton from '../custom-button/custom-button.component'
-import { addItem } from '../../redux/cart/cart.actions'
+import { addItemFromCart } from '../../redux/cart/cart.actions'
 
-const CollectionItem = ({ item, addItem }) => {
+const CollectionItem = ({ item, addItemFromCart }) => {
   const { name, price, imageUrl } = item
 
   return (
@@ -14,11 +14,11 @@ const CollectionItem = ({ item, addItem }) => {
         <span className="name">{name}</span>
         <span className="price">{price}</span>
       </div>
-      <CustomButton inverted onClick={() => addItem(item)}>
+      <CustomButton inverted onClick={() => addItemFromCart(item)}>
         Add To Cart
       </CustomButton>
     </div>
-  ) 
+  )
 }
 
-export default connect(null, { addItem })(CollectionItem)
+export default connect(null, { addItemFromCart })(CollectionItem)
